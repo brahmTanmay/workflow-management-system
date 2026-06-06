@@ -1,0 +1,29 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+database:
+  driverClass: org.h2.Driver
+  url: jdbc:h2:mem:leavedb;DB_CLOSE_DELAY=-1
+  user: sa
+  password: ""
+  maxWaitForConnection: 1s
+  validationQuery: "SELECT 1"
+  initialSize: 2
+  minSize: 2
+  maxSize: 8
+  checkConnectionWhileIdle: false
+  properties:
+    hibernate.dialect: org.hibernate.dialect.H2Dialect
+    hibernate.hbm2ddl.auto: create-drop
+    hibernate.show_sql: true
+    hibernate.format_sql: true
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
